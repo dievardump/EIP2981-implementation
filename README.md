@@ -15,11 +15,11 @@ In all implementations, royalties are expected to be from 0 to 10000 which allow
 
 ### Contract wide royalties
 
-The contract `ERC2981ContractWideRoyalties.sol` implements ERC2981 with every token having the same royalties recipient
+The contract `ERC2981ContractWideRoyalties.sol` implements ERC2981 with every token having the same royalties recipient and amount.
 
-- `./contracts/mocks/ERC1155WithContractWideRoyalties.sol`
 
-shows how to set royalties "contract wide" meaning each and every token have the same recipient and royalties amount set to them.
+`./contracts/mocks/ERC721WithContractWideRoyalties.sol` is an example of ERC721 that would work on a contract-wide royalty base.
+
 
 ### Per Token royalties
 
