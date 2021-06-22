@@ -1,0 +1,26 @@
+{
+  "name": "genuinehumann-contract",
+  "version": "0.0.1",
+  "description": "Genuine Human contracts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/contracts": "^4.1.0",
+    "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.3.1",
+    "hardhat": "^2.3.0",
+    "hardhat-deploy": "^0.7.11",
+    "hardhat-deploy-ethers": "*",
+    "hardhat-tracer": "*",
+    "minimist": "^1.2.5"
+  }
+}
