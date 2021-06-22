@@ -6,7 +6,7 @@ import '@openzeppelin/contracts/utils/introspection/ERC165.sol';
 import './IERC2981Royalties.sol';
 
 /// @dev This is a contract used to add ERC2981 support to ERC721 and 1155
-abstract contract ERC2981Royalties is ERC165, IERC2981Royalties {
+abstract contract ERC2981PerTokenRoyalties is ERC165, IERC2981Royalties {
     struct Royalty {
         address recipient;
         uint256 value;

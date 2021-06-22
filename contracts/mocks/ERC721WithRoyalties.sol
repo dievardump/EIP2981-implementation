@@ -3,12 +3,12 @@ pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
 
-import '../ERC2981Royalties.sol';
+import '../ERC2981PerTokenRoyalties.sol';
 
 /// @title Example of ERC721 contract with ERC2981
 /// @author Simon Fremaux (@dievardump)
 /// @notice This is a mock, mint and mintBatch are not protected. Please do not use as-is in production
-contract ERC721WithRoyalties is ERC721, ERC2981Royalties {
+contract ERC721WithRoyalties is ERC721, ERC2981PerTokenRoyalties {
     uint256 nextTokenId;
 
     constructor(string memory name_, string memory symbol_)
@@ -20,12 +20,12 @@ contract ERC721WithRoyalties is ERC721, ERC2981Royalties {
         public
         view
         virtual
-        override(ERC721, ERC2981Royalties)
+        override(ERC721, ERC2981PerTokenRoyalties)
         returns (bool)
     {
         return
             ERC721.supportsInterface(interfaceId) ||
-            ERC2981Royalties.supportsInterface(interfaceId);
+            ERC2981PerTokenRoyalties.supportsInterface(interfaceId);
     }
 
     /// @notice Mint one token to `to`

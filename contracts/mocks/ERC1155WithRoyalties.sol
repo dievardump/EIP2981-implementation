@@ -3,12 +3,12 @@ pragma solidity ^0.8.0;
 
 import '@openzeppelin/contracts/token/ERC1155/ERC1155.sol';
 
-import '../ERC2981Royalties.sol';
+import '../ERC2981PerTokenRoyalties.sol';
 
 /// @title Example of ERC1155 contract with ERC2981
 /// @author Simon Fremaux (@dievardump)
 /// @notice This is a mock, mint and mintBatch are not protected. Please do not use as-is in production
-contract ERC1155WithRoyalties is ERC1155, ERC2981Royalties {
+contract ERC1155WithRoyalties is ERC1155, ERC2981PerTokenRoyalties {
     constructor(string memory uri_) ERC1155(uri_) {}
 
     /// @inheritdoc	ERC165
@@ -16,12 +16,12 @@ contract ERC1155WithRoyalties is ERC1155, ERC2981Royalties {
         public
         view
         virtual
-        override(ERC1155, ERC2981Royalties)
+        override(ERC1155, ERC2981PerTokenRoyalties)
         returns (bool)
     {
         return
             ERC1155.supportsInterface(interfaceId) ||
-            ERC2981Royalties.supportsInterface(interfaceId);
+            ERC2981PerTokenRoyalties.supportsInterface(interfaceId);
     }
 
     /// @notice Mint amount token of type `id` to `to`
