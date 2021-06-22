@@ -1,13 +1,13 @@
 {
-  "name": "genuinehumann-contract",
+  "name": "eip2981-example",
   "version": "0.0.1",
-  "description": "Genuine Human contracts",
+  "description": "EIP2981 implementation example",
   "main": "index.js",
   "scripts": {
     "compile": "npx hardhat compile",
     "test": "npx hardhat test"
   },
-  "author": "",
+  "author": "simon fremaux (dievarump)",
   "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -15,13 +15,11 @@
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@openzeppelin/contracts": "^4.1.0",
     "chai": "^4.3.4",
-    "dotenv": "^10.0.0",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.3.1",
     "hardhat": "^2.4.0",
     "hardhat-deploy": "^0.8.8",
     "hardhat-deploy-ethers": "*",
-    "hardhat-tracer": "*",
-    "minimist": "^1.2.5"
+    "hardhat-tracer": "*"
   }
 }
