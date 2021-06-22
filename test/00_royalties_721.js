@@ -36,23 +36,20 @@ describe('ERC721WithRoyalties', () => {
             await erc721WithRoyalties.mint(
                 deployer.address,
                 royaltiesRecipient.address,
-                1000, // 10%
+                250, // 2.50%
             );
 
-            const info = await erc721WithRoyalties.royaltyInfo(0, 100);
-            expect(info[1].toNumber()).to.be.equal(10);
+            const info = await erc721WithRoyalties.royaltyInfo(0, 10000);
+            expect(info[1].toNumber()).to.be.equal(250);
             expect(info[0]).to.be.equal(royaltiesRecipient.address);
         });
 
         it('can set address(0) as royalties recipient', async function () {
-            await erc721WithRoyalties.mint(
-                deployer.address,
-                ADDRESS_ZERO,
-                1000,
-            );
+            // 0.01% royalties
+            await erc721WithRoyalties.mint(deployer.address, ADDRESS_ZERO, 1);
 
-            const info = await erc721WithRoyalties.royaltyInfo(0, 100);
-            expect(info[1].toNumber()).to.be.equal(10);
+            const info = await erc721WithRoyalties.royaltyInfo(0, 10000);
+            expect(info[1].toNumber()).to.be.equal(1);
             expect(info[0]).to.be.equal(ADDRESS_ZERO);
         });
 
