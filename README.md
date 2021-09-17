@@ -1,15 +1,8 @@
 # EIP-2981 Example
 
-## Disclaimer
-
-[EIP 2981](https://eips.ethereum.org/EIPS/eip-2981) is not in its final state, which means it is possible that the signature of the function changes until it's finalised. This is an example repository with only mocks that are not made for production.
-
-**Only use if you really know what you are doing**.
-
-
 ## Resume
 
-Simple example of implementation of upcoming EIP-2981.
+Simple example of implementation of EIP-2981.
 
 In all implementations, royalties are expected to be from 0 to 10000 which allows to define royalties with 2 decimals.
 
