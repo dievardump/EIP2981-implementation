@@ -19,7 +19,7 @@ abstract contract ERC2981ContractWideRoyalties is ERC165, IERC2981Royalties {
         override
         returns (bool)
     {
-        return interfaceId == type(IERC2981Royalties).interfaceId || super.suportsInterface(interfaceId);
+        return interfaceId == type(IERC2981Royalties).interfaceId || super.supportsInterface(interfaceId);
     }
 
     /// @dev Sets token royalties
