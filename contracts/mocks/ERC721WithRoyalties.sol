@@ -23,9 +23,7 @@ contract ERC721WithRoyalties is ERC721, ERC2981PerTokenRoyalties {
         override(ERC721, ERC2981PerTokenRoyalties)
         returns (bool)
     {
-        return
-            ERC721.supportsInterface(interfaceId) ||
-            ERC2981PerTokenRoyalties.supportsInterface(interfaceId);
+        return super.supportsInterface(interfaceId);
     }
 
     /// @notice Mint one token to `to`

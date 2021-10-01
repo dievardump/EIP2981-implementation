@@ -19,9 +19,7 @@ contract ERC1155WithRoyalties is ERC1155, ERC2981PerTokenRoyalties {
         override(ERC1155, ERC2981PerTokenRoyalties)
         returns (bool)
     {
-        return
-            ERC1155.supportsInterface(interfaceId) ||
-            ERC2981PerTokenRoyalties.supportsInterface(interfaceId);
+        return super.supportsInterface(interfaceId);
     }
 
     /// @notice Mint amount token of type `id` to `to`

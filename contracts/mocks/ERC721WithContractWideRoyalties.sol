@@ -26,9 +26,7 @@ contract ERC721WithContractWideRoyalties is
         override(ERC721, ERC2981ContractWideRoyalties)
         returns (bool)
     {
-        return
-            ERC721.supportsInterface(interfaceId) ||
-            ERC2981ContractWideRoyalties.supportsInterface(interfaceId);
+        return super.supportsInterface(interfaceId);
     }
 
     /// @notice Allows to set the royalties on the contract

@@ -1,6 +1,10 @@
 const { expect } = require('chai');
 const { deployments, ethers } = require('hardhat');
 
+const _INTERFACE_ID_ERC165 = '0x01ffc9a7';
+const _INTERFACE_ID_ROYALTIES_EIP2981 = '0x2a55205a';
+const _INTERFACE_ID_ERC721 = '0x80ac58cd';
+
 describe('ERC721WithRoyalties', () => {
     let ERC721WithRoyalties;
     let deployer;
@@ -22,6 +26,29 @@ describe('ERC721WithRoyalties', () => {
     });
 
     describe('Royalties', async () => {
+        it('has all the right interfaces', async function () {
+            expect(
+                await erc721WithRoyalties.supportsInterface(
+                    _INTERFACE_ID_ERC165,
+                ),
+                'Error Royalties 165',
+            ).to.be.true;
+
+            expect(
+                await erc721WithRoyalties.supportsInterface(
+                    _INTERFACE_ID_ROYALTIES_EIP2981,
+                ),
+                'Error Royalties 2981',
+            ).to.be.true;
+
+            expect(
+                await erc721WithRoyalties.supportsInterface(
+                    _INTERFACE_ID_ERC721,
+                ),
+                'Error Royalties 721',
+            ).to.be.true;
+        });
+
         it('throws if royalties more than 100%', async function () {
             const tx = erc721WithRoyalties.mint(
                 deployer.address,
