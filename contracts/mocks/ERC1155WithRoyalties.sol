@@ -16,7 +16,7 @@ contract ERC1155WithRoyalties is ERC1155, ERC2981PerTokenRoyalties {
         public
         view
         virtual
-        override(ERC1155, ERC2981PerTokenRoyalties)
+        override(ERC1155, ERC2981Base)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);

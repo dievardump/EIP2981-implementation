@@ -20,7 +20,7 @@ contract ERC721WithRoyalties is ERC721, ERC2981PerTokenRoyalties {
         public
         view
         virtual
-        override(ERC721, ERC2981PerTokenRoyalties)
+        override(ERC721, ERC2981Base)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);

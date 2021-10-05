@@ -23,7 +23,7 @@ contract ERC721WithContractWideRoyalties is
         public
         view
         virtual
-        override(ERC721, ERC2981ContractWideRoyalties)
+        override(ERC721, ERC2981Base)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
