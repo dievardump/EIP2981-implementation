@@ -7,7 +7,12 @@ import './ERC2981Base.sol';
 
 /// @dev This is a contract used to add ERC2981 support to ERC721 and 1155
 abstract contract ERC2981PerTokenRoyalties is ERC2981Base {
-    mapping(uint256 => bytes32) internal _royalties;
+    mapping(uint256 => RoyaltyInfo) internal _royalties;
+
+    struct RoyaltyInfo {
+        address recipient;
+        uint24 amount;
+    }
 
     /// @dev Sets token royalties
     /// @param tokenId the token id fir which we register the royalties
@@ -19,8 +24,7 @@ abstract contract ERC2981PerTokenRoyalties is ERC2981Base {
         uint256 value
     ) internal {
         require(value <= 10000, 'ERC2981Royalties: Too high');
-
-        _royalties[tokenId] = encodeRoyalties(recipient, value);
+        _royalties[tokenId] = RoyaltyInfo(recipient, uint24(value));
     }
 
     /// @inheritdoc	IERC2981Royalties
@@ -31,7 +35,8 @@ abstract contract ERC2981PerTokenRoyalties is ERC2981Base {
         returns (address receiver, uint256 royaltyAmount)
     {
         uint256 basis;
-        (receiver, basis) = decodeRoyalties(_royalties[tokenId]);
+        receiver = _royalties[tokenId].recipient;
+        basis = _royalties[tokenId].amount;
         royaltyAmount = (value * basis) / 10000;
     }
 }

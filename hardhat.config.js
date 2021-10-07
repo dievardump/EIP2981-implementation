@@ -4,6 +4,7 @@ require('hardhat-deploy');
 require('hardhat-deploy-ethers');
 require('hardhat-tracer');
 require('@nomiclabs/hardhat-etherscan');
+require("hardhat-gas-reporter");
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
