@@ -20,6 +20,7 @@
     "hardhat": "^2.4.0",
     "hardhat-deploy": "^0.8.8",
     "hardhat-deploy-ethers": "*",
+    "hardhat-gas-reporter": "1.0.4",
     "hardhat-tracer": "*"
   }
 }
