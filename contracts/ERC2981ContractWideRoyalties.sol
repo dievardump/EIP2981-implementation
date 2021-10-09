@@ -10,11 +10,6 @@ import './ERC2981Base.sol';
 abstract contract ERC2981ContractWideRoyalties is ERC2981Base {
     RoyaltyInfo private _royalties;
 
-    struct RoyaltyInfo {
-        address recipient;
-        uint24 amount;
-    }
-
     /// @dev Sets token royalties
     /// @param recipient recipient of the royalties
     /// @param value percentage (using 2 decimals - 10000 = 100, 0 = 0)
@@ -30,9 +25,8 @@ abstract contract ERC2981ContractWideRoyalties is ERC2981Base {
         override
         returns (address receiver, uint256 royaltyAmount)
     {
-        uint256 basis;
-        receiver = _royalties.recipient;
-        basis = _royalties.amount;
-        royaltyAmount = (value * basis) / 10000;
+        RoyaltyInfo memory royalties = _royalties;
+        receiver = royalties.recipient;
+        royaltyAmount = (value * royalties.amount) / 10000;
     }
 }
