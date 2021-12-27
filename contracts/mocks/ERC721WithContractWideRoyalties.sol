@@ -30,7 +30,7 @@ contract ERC721WithContractWideRoyalties is
     }
 
     /// @notice Allows to set the royalties on the contract
-    /// @dev This function in a real contract should be protected with a onlOwner (or equivalent) modifier
+    /// @dev This function in a real contract should be protected with a onlyOwner (or equivalent) modifier
     /// @param recipient the royalties recipient
     /// @param value royalties value (between 0 and 10000)
     function setRoyalties(address recipient, uint256 value) public {
